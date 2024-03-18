@@ -27,7 +27,7 @@ const TweetCard2 = (props) => {
 
             try {
                 var response = await axios.get(
-                    "http://localhost:4000/userRoutes/user-detail/" + props?.uid ,
+                    process.env.REACT_APP_URL+"/userRoutes/user-detail/" + props?.uid ,
                     //`${process.env.REACT_APP_URL}/userRoutes/login`, 
                 {               // Include cookies in the request
                     withCredentials: true 
@@ -61,7 +61,7 @@ const TweetCard2 = (props) => {
             const fetchData = async () => {
                 try {
 
-                    //console.log(`http://localhost:4000/userRoutes/user-detail/${tweet?.user}`);
+                    //console.log(`${process.env.REACT_APP_URL}/userRoutes/user-detail/${tweet?.user}`);
                     const { tweet } = props;
                     
                     const response = await axios.get(`${process.env.REACT_APP_URL}/userRoutes/user-detail/${getCookie('id')}`, {
@@ -281,7 +281,7 @@ const TweetCard2 = (props) => {
 
         const gettweet = () => {
             // Assuming you're using React Router for navigation
-            window.location.href = "http://localhost:3000/single-tweet/" +props.tid;
+            window.location.href = "/single-tweet/" +props.tid;
             return ;
           }
 

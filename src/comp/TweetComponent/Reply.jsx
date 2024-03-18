@@ -49,7 +49,7 @@ const Reply = (props) =>{
 
       console.log('Tweeted:', response.data);
 
-      window.location.href = "http://localhost:3000/single-tweet/" +response?.data?.commentid;
+      window.location.href = "/single-tweet/" +response?.data?.commentid;
       // Handle success, maybe show a success message or redirect the user
     } catch (error) {
       console.error('Error tweeting:', error);

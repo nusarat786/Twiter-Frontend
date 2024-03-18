@@ -102,7 +102,7 @@ const TweetCardList = () => {
         
         try {
             var response = await axios.get(
-                "http://localhost:4000/tweetRoutes/tweet-v3/65b22a26a76f07d50e93acd3",
+                process.env.REACT_APP_URL+ "/tweetRoutes/tweet-v3/65b22a26a76f07d50e93acd3",
                 //`${process.env.REACT_APP_URL}/userRoutes/login`, 
             
             {               // Include cookies in the request

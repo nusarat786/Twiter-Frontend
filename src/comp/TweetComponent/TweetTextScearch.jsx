@@ -71,7 +71,7 @@ const TweetTextScearch = (props) => {
         }
 
 
-        var type = `http://localhost:4000/tweetRoutes/get-tweets-v2/search/${scearchtext}/${pageNumber}`
+        var type = `${process.env.REACT_APP_URL}/tweetRoutes/get-tweets-v2/search/${scearchtext}/${pageNumber}`
         
         try {
             var response = await axios.get(
@@ -105,7 +105,7 @@ const TweetTextScearch = (props) => {
         
         setshowLoading(true)
 
-        var type = `http://localhost:4000/tweetRoutes/get-tweets-v2/search/${scearchtext}/${pageNumber}`
+        var type = process.env.REACT_APP_URL+`/tweetRoutes/get-tweets-v2/search/${scearchtext}/${pageNumber}`
         
         
         

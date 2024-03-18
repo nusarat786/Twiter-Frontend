@@ -268,7 +268,7 @@ const TweetCard5 = (props) => {
 
         const gettweet = () => {
             // Assuming you're using React Router for navigation
-            window.location.href = "http://localhost:3000/single-tweet/" +props.tid;
+            window.location.href = "/single-tweet/" +props.tid;
             return ;
           }
 

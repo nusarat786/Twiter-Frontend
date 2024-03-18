@@ -47,7 +47,7 @@ const Comments2 = (props) => {
             var response = await axios.get(
 
                 //`${process.env.REACT_APP_URL}/userRoutes/login`, 
-                "http://localhost:4000/tweetRoutes/tweet-comments/"+props?.tid+"/"+page,
+                process.env.REACT_APP_URL+"/tweetRoutes/tweet-comments/"+props?.tid+"/"+page,
             
             {               // Include cookies in the request
                 withCredentials: true 

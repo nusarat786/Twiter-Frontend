@@ -28,7 +28,7 @@ const GetHashtag = (props) => {
             var response = await axios.get(
 
                 `${process.env.REACT_APP_URL}/tweetRoutes/trending-hashtags`, 
-                //"http://localhost:4000/tweetRoutes/tweet-comments/"+props?.tid+"/"+page,
+                
             
             {               // Include cookies in the request
                 withCredentials: true 

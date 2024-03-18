@@ -24,7 +24,7 @@ const TweetCard = (props) => {
 
             try {
                 var response = await axios.get(
-                    "http://localhost:4000/userRoutes/user-detail/" + props.tweet?.user ,
+                    process.env.REACT_APP_URL+"/userRoutes/user-detail/" + props.tweet?.user ,
                     //`${process.env.REACT_APP_URL}/userRoutes/login`, 
                 
                 {               // Include cookies in the request
@@ -52,7 +52,7 @@ const TweetCard = (props) => {
             const fetchData = async () => {
                 try {
                     const { tweet } = props;
-                    const response = await axios.get(`http://localhost:4000/userRoutes/user-detail/${tweet?.user}`, {
+                    const response = await axios.get(`${process.env.REACT_APP_URL}/userRoutes/user-detail/${tweet?.user}`, {
                         withCredentials: true 
                     });
                     const { userObj } = response.data;
