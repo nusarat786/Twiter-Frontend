@@ -4,18 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const Tweet = (props) =>{
+const Tweet = (props) => {
 
-
-    
-    useEffect(()=>{
-      if(!props.islogined){
-          window.location.href = "/login"
-          return
-      }
-    },[props]);
-
-   
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
 
