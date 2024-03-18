@@ -53,7 +53,7 @@ const handleEror = (error) =>{
     const isLogined= ()=>{
         var flag = false;
 
-        if(getCookie("jwt")){
+        if(getCookie("id")){
             flag= true;
         }
 
