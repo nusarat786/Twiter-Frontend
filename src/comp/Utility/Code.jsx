@@ -66,6 +66,6 @@ const handleEror = (error) =>{
       };
 
     
-    
-
     export {handleEror,handleChange,navigate ,isLogined,getCookie};
+
+    
