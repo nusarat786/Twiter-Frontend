@@ -47,6 +47,9 @@ Nav Bar
 Single Tweet with the cronology
 ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/6a378b26-92d0-48ff-b653-78897146babb)
 
+Other User Profile
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/8e083166-299a-4bc5-bf05-8675d7d39eca)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
