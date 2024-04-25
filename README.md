@@ -1,3 +1,6 @@
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/d8a67976-1e47-4a9b-8e44-cb208074f219)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
