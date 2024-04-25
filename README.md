@@ -1,4 +1,5 @@
-It is tweeter like app with all the major feature with react as front end and node as backend
+It is tweeter like app with all the major feature with react as front end and node as backend 
+(for backend you can refer https://github.com/nusarat786/Twiter-Backend)
 
 Login Page
 ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/412e1b79-b38d-4835-98ba-98ae592ffeba)
