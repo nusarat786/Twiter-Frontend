@@ -1,4 +1,13 @@
-![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/d8a67976-1e47-4a9b-8e44-cb208074f219)
+Login Page
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/412e1b79-b38d-4835-98ba-98ae592ffeba)
+
+Register Page
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/3954b3f8-97c9-4f97-b9d3-9ed89d4aecde)
+
+Forget Password
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/03d5342f-1bd5-4d6e-8651-7c895876ee6e)
+
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/6a18e793-3600-4dac-8a94-b36a83308bdb)
 
 
 # Getting Started with Create React App
