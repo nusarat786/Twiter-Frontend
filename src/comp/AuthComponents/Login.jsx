@@ -61,7 +61,7 @@ var Login =(props)=>{
         
         try {
             var response = await axios.post(
-                `${process.env.REACT_APP_URL}/userRoutes/login-v2`, 
+                `${process.env.REACT_APP_URL}/userRoutes/login`, 
             {
                 email: loginformData.email,
                 password: loginformData.password
@@ -81,7 +81,7 @@ var Login =(props)=>{
             // Set cookie string
             const cookieString = `id=${id};expires=${expiryTime.toUTCString()};path=/`;
 
-            const cookieString2 = `jwt=${jwt};expires=${expiryTime.toUTCString()};path=/`;
+            const cookieString2 = `abc=${jwt};expires=${expiryTime.toUTCString()};path=/`;
 
             // Set the cookie
             document.cookie = cookieString;
