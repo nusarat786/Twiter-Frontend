@@ -1,3 +1,5 @@
+hosted on (https://twiter-frontend.vercel.app/login)
+
 It is tweeter like app with all the major feature with react as front end and node as backend 
 (for backend you can refer https://github.com/nusarat786/Twiter-Backend)
 
