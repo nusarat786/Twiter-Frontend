@@ -1,3 +1,58 @@
+It is tweeter like app with all the major feature with react as front end and node as backend 
+(for backend you can refer https://github.com/nusarat786/Twiter-Backend)
+
+Login Page
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/412e1b79-b38d-4835-98ba-98ae592ffeba)
+
+Register Page
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/3954b3f8-97c9-4f97-b9d3-9ed89d4aecde)
+
+Forget Password
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/03d5342f-1bd5-4d6e-8651-7c895876ee6e)
+
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/6a18e793-3600-4dac-8a94-b36a83308bdb)
+
+Tweet Page
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/adb575c7-5ab3-4af7-90a4-2452e59b003b)
+
+Following
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/14c22df9-bf2e-4ccc-b268-25aacf9d948a)
+
+Trending (Hash Tags)
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/613cf0f0-ae65-4768-8d32-5fd5cb94c200)
+
+Scearch 
+
+  by Name
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/99819589-fa90-466e-a53d-fbf06bd3aeb3)
+  
+  by UserName
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/2b8f0eaa-8d51-44b3-a6a0-a0cb2ab935d1)
+
+  tweet by name
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/03ffb447-1884-40fb-adaf-d4736b12f790)
+
+Account Details
+
+  my account
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/21b8f82f-86a0-487a-b0c2-cf60ca621d7f)
+
+  all details like ,retweet , book marked ,replies
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/ae6a5245-552a-489b-b80a-0fc20a90a1db)
+
+  update user deatils
+  ![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/88d3adf8-a3d9-46ec-97ee-877ef78ed28c)
+
+
+Nav Bar
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/bf50386c-aa06-4790-8e50-68bc455e7815)
+  
+Single Tweet with the cronology
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/6a378b26-92d0-48ff-b653-78897146babb)
+
+Other User Profile
+![image](https://github.com/nusarat786/Twiter-Frontend/assets/95936097/8e083166-299a-4bc5-bf05-8675d7d39eca)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
