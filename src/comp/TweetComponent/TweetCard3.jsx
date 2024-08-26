@@ -37,7 +37,7 @@ const TweetCard3 = (props) => {
 
                     const { userObj } = response.data;
                     setUser(userObj);
-                    //console.log(userObj);
+                    console.log(userObj);
                     //console.log(`${props?.tid} ------------------ ${userObj?.liked}`);
                     const likedFlag = getflag(props.tid, userObj?.liked);
                     const bookmarkedFlag = getflag(props.tid, userObj?.bookmarked);

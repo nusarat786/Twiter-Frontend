@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TweetCard3 from './TweetCard3';
+import TweetCard5 from './TweetCard5';
 import { useParams } from 'react-router-dom';
 import "./index.css"
 import Reply from './Reply';
@@ -65,6 +66,7 @@ const GetHastagsTweet = (props) => {
     
     return (
         <>
+        {console.log(TweetData)}
         <div> {console.log(nodata)} </div>
         <div>
         
@@ -75,9 +77,9 @@ const GetHastagsTweet = (props) => {
         </div>
 
         {TweetData && TweetData?.map(tweet => (
-
+            
         <div id={++count +"tweet"}>
-            <TweetCard3 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user?._id}   />  
+            <TweetCard5 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user}   />  
         </div>
         
         ))}

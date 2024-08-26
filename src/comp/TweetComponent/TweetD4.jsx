@@ -6,6 +6,7 @@ import "./index.css"
 import Reply from './Reply';
 import { Comments2 } from './Comments 2';
 import TweetCard3 from './TweetCard3';
+import TweetCard5 from './TweetCard5';
 const TweetCardList4 = (props) => {
 
     const[id,setId] = useState(props.id);
@@ -104,7 +105,7 @@ const TweetCardList4 = (props) => {
     {TweetData && TweetData?.map(tweet => (
 
     <div>
-        <TweetCard3 key={tweet?._id} tweet={tweet}  tid={tweet?._id} uid={tweet?.user}   /> 
+        <TweetCard5 key={tweet?._id} tweet={tweet}  tid={tweet?._id} uid={tweet?.user}   /> 
         <div className="d-flex justify-content-center align-items-center" style={{height: "5rem"}}>
             <div className="vr text-center bg-9" id={++count}  ></div>  
         </div>

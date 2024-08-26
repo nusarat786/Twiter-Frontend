@@ -70,11 +70,12 @@ var Login =(props)=>{
                 withCredentials: true 
             });
 
+            console.log(response)
             var data= response.data;
             var id  = data.id;
 
             // Calculate expiry time (10 hours from now)
-            const expiryTime = new Date(Date.now() + 36000000); // 10 hours in milliseconds
+            const expiryTime = new Date(Date.now() + 3600000); // 10 hours in milliseconds
 
             // Set cookie string
             const cookieString = `id=${id};expires=${expiryTime.toUTCString()};path=/`;

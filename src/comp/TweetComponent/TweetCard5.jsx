@@ -41,19 +41,25 @@ const TweetCard5 = (props) => {
                     setUser(userObj);
                     
 
+
+                    console.log(getCookie('id'))
                     const response3 = await axios.get(`${process.env.REACT_APP_URL}/userRoutes/user-detail/${getCookie('id')}`, {
                         withCredentials: true 
                     });
 
-                    const { userObj2 } = response3.data;
-                    console.log(userObj);
+                    
+                    const  userObj2  = response3.data?.userObj;                    ;
+                    console.log("user")
+                    console.log(response3);
+                    
+                    console.log(userObj2);
+
                    // console.log(`${props?.tid} ------------------ ${userObj2?.liked}`);
                     const likedFlag = getflag(props.tid, userObj2?.liked);
                     const bookmarkedFlag = getflag(props.tid, userObj2?.bookmarked);
                     const repostedFlag = getflag(props.tid, userObj2?.reposted);
 
-
-
+                   
                     setF1(likedFlag);
                     setF2(bookmarkedFlag);
                     setF3(repostedFlag);
@@ -175,6 +181,8 @@ const TweetCard5 = (props) => {
                 alert(m.message);
                 console.log(error);
             }
+
+            //console.log(userObj2)
         };
 
         
