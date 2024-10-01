@@ -3,11 +3,13 @@ import { handleEror } from "../Utility/Code";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import LoadingSpinner from "../Utility/Loading";
 
 const Tweet = (props) => {
 
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
+  const[showLoading,setshowLoading] = useState(false)
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -18,14 +20,31 @@ const Tweet = (props) => {
   };
 
   const handleSubmit = async (e) => {
+    setshowLoading(true)
+
     e.preventDefault();
     
     try {
+      setshowLoading(true)
+
       const formData = new FormData();
-      formData.append('text', text);
+
+      
+      if(!text || text==null){
+        return alert('Tweet Text can not be null')
+      }
+
+      if(!text.trim()){
+        return alert('Tweet Text can not be null')
+      }
+
+      formData.append('text', text.trim());
+      
       if (image) {
         formData.append('timage', image);
       }
+
+      
 
       const response = await axios.post(`${process.env.REACT_APP_URL}/tweetRoutes/tweet-v4`, formData, {
         headers: {
@@ -43,7 +62,9 @@ const Tweet = (props) => {
       // Handle success, maybe show a success message or redirect the user
     } catch (error) {
       console.error('Error tweeting:', error);
-      // Handle error, maybe show an error message to the user
+      alert("unable To Post Tweet")
+    }finally{
+      setshowLoading(false)
     }
   };
 
@@ -64,6 +85,9 @@ const Tweet = (props) => {
 
     return(
         <>
+        {showLoading &&
+        <LoadingSpinner  showLoading={showLoading}/>
+        }
         <div className="container">
             <div className="row">
                 <div className="b-shado col-md-6 offset-md-3 col-10 offset-1 col-sm-10 offset-sm-1">

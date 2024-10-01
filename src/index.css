@@ -152,6 +152,12 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px 
   background-color: rgba(29, 161, 242, 1)  !important ;
 }
 
+.bg-10{
+  font-size: 1rem !important;
+  color:antiquewhite !important;
+  background-color: rgba(29, 161, 242, 1)  !important ;
+}
+
 .bg-1:hover,
 .bg-2:hover,
 .bg-3:hover{
@@ -246,4 +252,9 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px 
 
 .ml6{
   margin-left: 0.7rem !important;
+}
+
+
+.bg-spinner{
+  background-color: rgba(29, 161, 242, 1)  !important ;
 }

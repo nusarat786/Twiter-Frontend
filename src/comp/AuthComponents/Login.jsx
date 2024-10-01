@@ -6,6 +6,7 @@ import validator from 'validator';
 import Alert1 from "../Utility/Alert";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
+import LoadingSpinner from "../Utility/Loading";
 
 
 var Login =(props)=>{
@@ -16,7 +17,8 @@ var Login =(props)=>{
     const [loggedIn, setLoggedIn] = useState(false);
     const [list2 ,setList] = useState([]);
     const [flag ,setFlag] = useState(false);
-
+    const[showLoading,setshowLoading] = useState(false)
+    
 
     useEffect(()=>{
         if(props.islogined){
@@ -36,6 +38,7 @@ var Login =(props)=>{
     console.log(process.env.REACT_URL);
 
     const handleLoginSubmit = async (e) => {
+        setshowLoading(true)
         e.preventDefault();
         setFormData({ ...loginformData, status: "PROCESSING" });
         list2.length = 0;
@@ -51,6 +54,7 @@ var Login =(props)=>{
         }
 
         if(list.length >0){
+            setshowLoading(false)
             setFormData({ ...loginformData, status: "PROCESSED" });
             setFlag(true)
             setList(list)
@@ -91,16 +95,21 @@ var Login =(props)=>{
              
             setLoggedIn(true);
             setFormData({ ...loginformData, status: "PROCESSED" });
+            setshowLoading(false)
             alert("Success:  " + data.message);
             window.location.href = "/home"
                 
             console.log(response); // Assuming your backend returns a message upon successful login
 
         } catch (error) {
+            setshowLoading(false)
+
             var m = error?.response?.data;
             setFormData({ ...loginformData, status: "PROCESSED" });
             alert(m?.message);
             console.log(e);
+        }finally{
+            setshowLoading(false)
         }
 
         setFormData({ ...loginformData, status: "PROCESSED" });
@@ -145,6 +154,9 @@ var Login =(props)=>{
 
     return (
     <>
+    {showLoading &&
+        <LoadingSpinner  showLoading={showLoading}/>
+    }
     {flag && <Alert1 list={list2} flag={flag} setFlag={setFlag} /> }
     <div className="container">
         <div className="row">

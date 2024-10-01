@@ -145,17 +145,17 @@ const TwitterMenuSlider = (props) => {
           )}
           {selectedComponent === 'component2' && (
             <div className="component">
-              <TweetCardList3 type="l" id={getCookie('id') }  islogined={props?.islogined}/>
+              <TweetCardList3 type="l" id={getCookie('id') }  islogined={props?.islogined}  menu={'l'}/>
             </div>
           )}
           {selectedComponent === 'component3' && (
             <div className="component">
-              <TweetCardList3 type="bm" id={getCookie('id')} islogined={props?.islogined}/>
+              <TweetCardList3 type="bm" id={getCookie('id')} islogined={props?.islogined}  menu={'b'}/>
             </div>
           )}
           {selectedComponent === 'component4' && (
             <div className="component">
-              <TweetCardList3 type="rp" id={getCookie('id')} islogined={props?.islogined}/>
+              <TweetCardList3 type="rp" id={getCookie('id')} islogined={props?.islogined} menu={'c'}/>
             </div>
           )}
           

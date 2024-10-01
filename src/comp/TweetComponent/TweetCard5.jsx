@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink,Link, redirect } from 'react-router-dom';
+import { NavLink,Link, redirect, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {getCookie} from '../Utility/Code';
 
 const TweetCard5 = (props) => {
 
-
-    
+        const navigate =  useNavigate();
+        const {menu}  =props;
         const getflag = (id,arry)=>{
             return arry && arry?.includes(id) ? true : false;
         }
@@ -141,11 +141,18 @@ const TweetCard5 = (props) => {
                 var data = response?.data;
                 //console.log(data)
                 //console.log(data?.tweetlikes?.includes(data?.userid));
-                setF2(getflag(props?.tid,data?.userbookmarked));
+                let tt = getflag(props?.tid,data?.userbookmarked)
+                setF2(tt);
                 setBookmarks(data?.tweetbookmarks?.length);
                 //console.log(f2)
                 //console.log(data?.message);
                 //console.log(data)
+                console.log(menu,document.location.pathname)
+                console.log(menu==='b')
+                console.log(document.location.pathname ==="/all-records/")
+                if(document.location.pathname ==="/all-records/" && menu==='b' && !tt){
+                    document.getElementById(props?.tid).style.display='none';
+                }
                 
                 //window.location.reload();
             } catch (error) {
@@ -169,8 +176,16 @@ const TweetCard5 = (props) => {
                 var data = response?.data;
                 console.log(data)
                 console.log(data?.tweetlikes?.includes(data?.userid));
-                setF1(getflag(props?.tid,data?.userliked));
+                let t = getflag(props?.tid,data?.userliked);
+                setF1(t);
                 setLike(data?.tweetlikes?.length);
+                
+                console.log(menu,document.location.pathname)
+                console.log(menu==='l')
+                console.log(document.location.pathname ==="/all-records/")
+                if(document.location.pathname ==="/all-records/" && menu==='l' && !t){
+                    document.getElementById(props?.tid).style.display='none';
+                }
                 //console.log(f2)
                 //console.log(data?.message);
                 //console.log(data)
@@ -185,11 +200,68 @@ const TweetCard5 = (props) => {
             //console.log(userObj2)
         };
 
+    
+        const deletetweet = async () => {
+            try {
+
+                var confirm =  window.confirm('This Will Delete The Selcted Tweet')
+
+                if(!confirm){
+                    return
+                }
+
+                var response = await axios.post(
+                    process.env.REACT_APP_URL + "/tweetRoutes/delete-tweet/" + props?.tid,
+                    null, // No data to send in the request body
+                    {
+                        withCredentials: true // Include cookies in the request
+                    }
+                );
+        
+                var data = response?.data;
+                
+                document.getElementById(props?.tid).style.display='none';
+
+                alert('Tweet deleted' ,data?.message);
+                console.log(data)
+
+
+                
+                //window.location.reload();
+            } catch (error) {
+                var m = error.response.data;
+                alert(m.message);
+                console.log(error);
+            }
+
+            //console.log(userObj2)
+        };
         
         
         const comment = () => {
             
         };
+
+        // const share = () => {
+        //     console.log()
+        //     navigate(`/single-tweet/${props?.tid}`)
+        // };
+
+
+        //
+
+        const share = async () => {
+            const fullURL = `${window.location.origin}/single-tweet/${props?.tid}`;
+            
+            try {
+                await navigator.clipboard.writeText(fullURL);
+                alert(`Tweet link copied: ${fullURL}`);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
+        };
+        
+        
 
         function abbreviateNumber(number) {
             if (number < 1000) {
@@ -286,7 +358,7 @@ const TweetCard5 = (props) => {
         
   return (
     
-    <div className="container" >
+    <div className="container" id={props?.tid} >
        {console.log(f1 + " " + f2 + " " + f3)}
         
       <div className="row ">
@@ -359,8 +431,12 @@ const TweetCard5 = (props) => {
                         ></i> {abbreviateNumber(Bookmarks)}
                 </button>
 
-                <button type="button" className="btn btn-link bg-1" onClick={comment} >
+                <button type="button" className="btn btn-link bg-1" onClick={share} >
                   <i className="p-1  fas fa-share"></i> 
+                </button>
+                <button type="button" className="btn btn-link bg-1" onClick={deletetweet} >
+                  {/* <i className="p-1  fas fa-share"></i>  */}
+                  <i class="fa-solid fa-trash"></i>
                 </button>
 
               </div>
