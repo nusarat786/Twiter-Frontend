@@ -27,13 +27,25 @@ import ScaerchUser from './comp/TweetComponent/ScaerchUser';
 import ProfileCard3 from './comp/TweetComponent/ProfileCard3'; 
 import TwitterMenuSliderUser from './comp/TweetComponent/TwitterMenuSliderUser';
 import Update from './comp/AuthComponents/Update';
+import axios from 'axios';
 
 function App() {
   const [islogined, setIsLogined] = useState(isLogined());
 
   useEffect(() => {
     setIsLogined(isLogined());
+    testApi();
   }, []);
+
+  let testApi = async () =>{
+    try{
+      var response = await axios.get(
+        `${process.env.REACT_APP_URL}/test`)
+      console.log(response?.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   
 
