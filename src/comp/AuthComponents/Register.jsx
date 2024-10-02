@@ -8,9 +8,13 @@ import Alert1 from "../Utility/Alert";
 import { Navigate } from "react-router-dom"
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../Utility/Loading";
 
 const Register = (props)=>{
 
+    const[showLoading,setshowLoading] = useState(false)
+
+    
     useEffect(()=>{
         if(props.islogined){
             window.location.href = "/home"
@@ -51,6 +55,8 @@ const Register = (props)=>{
         
 
     var handleRegisterSubmit = async (e) =>{
+
+        setshowLoading(true);
         list2.length = 0;
         var list = [];
         e.preventDefault();
@@ -87,6 +93,7 @@ const Register = (props)=>{
         console.log(list)
         
         if(list.length >0){
+            setshowLoading(false);
             setFlag(true);
             setList(list);
             return null;
@@ -143,6 +150,8 @@ const Register = (props)=>{
             setRegFormData({...regFormData,status:"PROCESSED"});
             alert(m.message);
             console.log(e)
+        }finally{
+            setshowLoading(false)
         }
 
     }
@@ -158,7 +167,9 @@ const Register = (props)=>{
     return (
         <>
 
-       
+        {showLoading &&
+            <LoadingSpinner  showLoading={showLoading}/>
+        }
         {flag && <Alert1 list={list2} flag={flag} setFlag={setFlag} /> }
         <div className="container">
             <div className="row">

@@ -13,7 +13,8 @@ const Comments = (props) => {
     const [dataLoaded, setDataLoaded] = useState(false);
     //const[page,setPage] = useState(1)
     const[paginationData,setPaginationData] = useState({})
-    
+    const[showLoading,setshowLoading] = useState(false)
+
 
     const { tid  } = useParams();
     const[TweetData,settweetData] = useState([]);

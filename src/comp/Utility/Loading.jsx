@@ -13,8 +13,8 @@ const LoadingSpinner = ({ showLoading }) => {
       backdrop="static"
       keyboard={false}
     >
-      <Modal.Body className="d-flex justify-content-center align-items-center">
-        <Spinner animation="border" role="status">
+      <Modal.Body className="d-flex justify-content-center align-items-center bg-10">
+        <Spinner animation="border" role="status" >
           <span className="sr-only">Loading...</span>
         </Spinner>
         &nbsp; <span>Please Wait.. </span>

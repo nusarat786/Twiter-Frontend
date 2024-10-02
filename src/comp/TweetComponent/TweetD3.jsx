@@ -12,6 +12,7 @@ const TweetCardList3 = (props) => {
     const[type,setType] = useState("");
     const[nodata,setNoData] = useState("");
 
+    const {menu} =props;
     const[paginationData,setPaginationData] = useState({});
  
     const handlePge = async (pageNumber) => {
@@ -86,7 +87,7 @@ const TweetCardList3 = (props) => {
 
     <div>
     
-    {TweetData && TweetData?.map(tweet => (<TweetCard5 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user?._id} /> ))}
+    {TweetData && TweetData?.map(tweet => (<TweetCard5 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user?._id} menu={menu} /> ))}
     
     {
     nodata

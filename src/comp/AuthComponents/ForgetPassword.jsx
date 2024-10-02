@@ -1,4 +1,6 @@
-import React from "react";
+
+
+import React, { useDebugValue } from "react";
 import { useState ,useEffect } from "react";
 import { Navigate } from "react-router-dom"
 import axios from "axios";
@@ -23,7 +25,9 @@ var ForgetPassword =(props)=>{
     const [flag ,setFlag] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
     const [otpSent,setOtpSent] = useState(false)
+    const [email,setEmail] =useState()
 
+    const [fotp,setfotp]  = useState(false)
     useEffect(()=>{
         if(props.islogined){
             window.location.href = "/home"
@@ -46,7 +50,6 @@ var ForgetPassword =(props)=>{
     console.log(process.env.REACT_URL);
 
     const handleLoginSendOtp = async (e) => {
-        
         
 
         e.preventDefault();
@@ -92,6 +95,9 @@ var ForgetPassword =(props)=>{
             //alert("Success:  " + data.message);
             //window.location.href = "/home"   
             console.log(response); // Assuming your backend returns a message upon successful login
+            setfotp(true)
+            setEmail(loginformData.email);
+            alert('otp sent')
 
         } catch (error) {
             var m = error?.response?.data;
@@ -106,6 +112,69 @@ var ForgetPassword =(props)=>{
         //setFormData({ ...loginformData, status: "PROCESSED" });
     }
 
+    const handleLoginSendOtpAgain = async (e) => {
+        
+        ///setFormData(...for)
+
+        e.preventDefault();
+
+        list2.length = 0;
+        var list = [];
+
+        
+        // if(!loginformData.email || !validator.isEmail(loginformData.email)){
+        //     list.push(loginformData.email + " is not a valid eamil/blank");
+        // }
+
+        if(list.length >0){
+            setFormData({ ...loginformData,email:email, status: "PROCESSED" });
+            setFlag(true)
+            setList(list)
+            return;
+        }
+
+        
+        setShowLoading(true);
+        setOtpSent(false);
+
+        try {
+
+            
+
+            var response = await axios.post(
+                `${process.env.REACT_APP_URL}/userRoutes/forget-password`, 
+            {
+                email: email
+            },
+            {               // Include cookies in the request
+                withCredentials: true 
+            });
+
+            var data= response.data;
+            
+            setLoggedIn(true);
+            setShowLoading(false);
+            setOtpSent(true)
+            setFormData({ ...loginformData, status: "PROCESSED" });
+            //alert("Success:  " + data.message);
+            //window.location.href = "/home"   
+            console.log(response); // Assuming your backend returns a message upon successful login
+
+        } catch (error) {
+            var m = error?.response?.data;
+            setOtpSent(error?.data?.err)
+            setShowLoading(false);
+            setFormData({ ...loginformData, status: "PROCESSED",OTP:'' });
+            alert(m?.message);
+            console.log(e);
+        }finally{
+            setFormData({ ...loginformData, status: "PROCESSED",OTP:'' });
+
+        }
+        
+        
+        //setFormData({ ...loginformData, status: "PROCESSED" });
+    }
     const handleVerifyOtp = async (e) => {
         e.preventDefault();
         
@@ -150,7 +219,7 @@ var ForgetPassword =(props)=>{
             var response = await axios.post(
                 `${process.env.REACT_APP_URL}/userRoutes/verify-otp`, 
             {
-                email: loginformData.email,
+                email: loginformData.email ? loginformData.email :email ,
                 otp:loginformData.OTP,
                 password:loginformData.password,
                 cpassword:loginformData.cpassword
@@ -168,7 +237,7 @@ var ForgetPassword =(props)=>{
             setFormData({ ...loginformData, status: "PROCESSED" });
             alert("Success:  " + data?.message);
             window.location.href = "/login"   
-            console.log(response); // Assuming your backend returns a message upon successful login
+            //console.log(response); // Assuming your backend returns a message upon successful login
 
         } catch (error) {
             var m = error?.response?.data;
@@ -177,9 +246,11 @@ var ForgetPassword =(props)=>{
             setFormData({ ...loginformData, status: "PROCESSED" });
             alert(m?.message);
             console.log(e);
+        }finally{
+            setFormData({...FormData, password: '',cpassword:'',status:"PROCESSED",OTP:""  });
         }
 
-        setFormData({ ...loginformData, status: "PROCESSED" });
+        
     }
 
     
@@ -233,14 +304,14 @@ var ForgetPassword =(props)=>{
                     
                     <div class="mb-4">
                         <label class="form-label" for="form2Example1">Email address</label>
-                        <input className="input" type="text" id="form2Example1" class="form-control" name="email" value={loginformData.email} onChange={handleChange} />                    
+                        <input readOnly={fotp} className="input" type="text" id="form2Example1" class="form-control" name="email" value={loginformData.email} onChange={handleChange} />                    
                     </div>
 
                     
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Send OTP</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-4" disabled={fotp}>Send OTP</button>
 
                     <div class="text-center">           
-                        <Link to={"/register"} className="font-1" onClick={handleLoginSendOtp}>Resend OTP? </Link>                       
+                        <Link className="font-1" onClick={handleLoginSendOtpAgain}>Resend OTP? </Link>                       
                     </div>
 
                 </form>

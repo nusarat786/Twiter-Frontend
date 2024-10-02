@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TweetCard3 from './TweetCard3';
 import { useParams } from 'react-router-dom';
+import TweetCard5 from './TweetCard5';
 
 
 const Feed = (props) => {
@@ -56,7 +57,7 @@ const Feed = (props) => {
 
     <div>
     
-    {TweetData && TweetData?.map(tweet => (<TweetCard3 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user?._id} /> ))}
+    {TweetData && TweetData?.map(tweet => (<TweetCard5 key={tweet?._id}  tid={tweet?._id} uid={tweet?.user?._id} /> ))}
     
 
     {

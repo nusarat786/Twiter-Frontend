@@ -12,6 +12,7 @@ const TweetTextScearch = (props) => {
     const[nodata,setNoData] = useState("");
 
     const[showLoading,setshowLoading] = useState(false)
+    
     const[paginationData,setPaginationData] = useState({});
     const[flag,setFlag] = useState(false);
 
@@ -22,7 +23,6 @@ const TweetTextScearch = (props) => {
         handleScearc2(pageNumber);
     };
 
-    
     const fetch = async (pageNumber) => {
         
         setshowLoading(true)
