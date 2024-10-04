@@ -28,9 +28,12 @@ import ProfileCard3 from './comp/TweetComponent/ProfileCard3';
 import TwitterMenuSliderUser from './comp/TweetComponent/TwitterMenuSliderUser';
 import Update from './comp/AuthComponents/Update';
 import axios from 'axios';
+import LoadingSpinner from './comp/Utility/Loading';
+import LoadingSpinner2 from './comp/Utility/LoadinSpinner2';
 
 function App() {
   const [islogined, setIsLogined] = useState(isLogined());
+  const[showLoading,setshowLoading] = useState(false)
 
   useEffect(() => {
     setIsLogined(isLogined());
@@ -39,9 +42,11 @@ function App() {
 
   let testApi = async () =>{
     try{
+      setshowLoading(true)
       var response = await axios.get(
         `${process.env.REACT_APP_URL}/test`)
       console.log(response?.data)
+      setshowLoading(false)
     }catch(err){
       console.log(err)
     }
@@ -52,6 +57,9 @@ function App() {
   return (
     <>
     
+    {showLoading &&
+        <LoadingSpinner2 text={"Backend Instance Is Strating....."}  showLoading={showLoading}/>
+    }
     <Router>
 
       <div className='m-10 '>
