@@ -40,17 +40,24 @@ function App() {
     testApi();
   }, []);
 
-  let testApi = async () =>{
-    try{
-      setshowLoading(true)
-      var response = await axios.get(
-        `${process.env.REACT_APP_URL}/test`)
-      console.log(response?.data)
-      setshowLoading(false)
-    }catch(err){
-      console.log(err)
+  let testApi = async () => {
+    try {
+      setshowLoading(true); 
+      var response = await axios.get(`${process.env.REACT_APP_URL}/test`);
+      console.log(response?.data);
+    } catch (err) {
+      console.error("First attempt failed:", err);
+ 
+      try {
+        var retryResponse = await axios.get(`${process.env.REACT_APP_URL}/test`);
+        console.log(retryResponse?.data);
+      } catch (retryErr) {
+        console.error("Retry attempt failed:", retryErr);
+      }
+    } finally {
+      setshowLoading(false); 
     }
-  }
+  };
 
   
 
